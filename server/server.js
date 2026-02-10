@@ -39,7 +39,9 @@ app.get("/debug-sentry", function mainHandler(req, res) {
 
 // Webhook endpoint (needs raw body)
 app.post("/webhooks", clerkWebhook);
-
+app.get('/health',(req,res)=>{
+  res.status(200).send('ok');
+});
 app.use("/api/companies",companyRoutes);
 app.use("/api/jobs",jobRoute);
  app.use("/api/users",userRoute);
